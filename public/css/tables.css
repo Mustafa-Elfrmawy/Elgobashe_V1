@@ -1,0 +1,53 @@
+:root {
+  --main-color: #009efb;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  .tables-title {
+    color: var(--main-color);
+  }
+  
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    direction: rtl;
+  }
+  
+  /* استخدام Grid لكل صف في الـ thead والـ tbody */
+  .table thead tr,
+  .table tbody tr {
+    display: grid;
+    grid-template-columns: 50px repeat(4, 1fr);
+  }
+  
+  /* تنسيق خلايا الجدول */
+  .table th,
+  .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  /* خلفية لرؤوس الأعمدة */
+  .table th {
+    background-color: var(--main-color);
+    color: white !important;
+  }
+
+  .table th::selection {
+    background-color: white;
+    color: var(--main-color) !important;
+  }
+  
+  .sidebar-item-orders {
+    border-left: 3px solid var(--main-color) !important;
+  }
+
+  .sidebar-item-orders * {
+    color: var(--main-color) !important;
+  }

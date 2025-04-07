@@ -1,0 +1,64 @@
+
+body {
+    background-image: url(../assets/images/background/forms-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.col-md-8 {
+    margin-top: 25px;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card * {
+    border-radius: 10px !important;
+}
+
+label {
+    transition: color .3s ease;
+}
+
+input:focus {
+    border-color: #009efb !important;
+}
+
+.mb-3:focus-within label {
+    color: #009efb !important;
+}
+
+.btn {
+    background-color: #009efb;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #009efb;
+    border: 1px solid #009efb;
+}
+
+.back-home {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #2c2b2e;
+    color: #2c2b2e;
+    transition: color .3s ease, background-color .3s ease;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #2c2b2e38;
+}
+
+.back-home:hover {
+    color: white;
+    background-color: #009efb;
+    border-color: white;
+}

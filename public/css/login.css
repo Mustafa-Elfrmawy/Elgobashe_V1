@@ -1,0 +1,28 @@
+
+.col-md-8 {
+    margin-top: 25px;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card * {
+    border-radius: 10px !important;
+}
+
+input {
+    text-align: center;
+}
+
+.btn {
+    background-color: #009efb;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #009efb;
+    border: 1px solid #009efb;
+}

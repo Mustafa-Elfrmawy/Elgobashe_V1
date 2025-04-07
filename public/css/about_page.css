@@ -1,0 +1,179 @@
+:root {
+    --main-color: #009efb;
+    --second-color: #343a40;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    color: var(--second-color);
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.text-center h3 {
+    color: var(--main-color);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.dev-info, .system-info {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.dev-info h4, .system-info h4 {
+    display: inline-block;
+    width: 245px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+    border-bottom: 2px solid var(--main-color);
+    border-top: 1px solid var(--second-color);
+    color: var(--second-color);
+}
+
+.dev-one, .dev-two {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #eee;
+}
+
+.card div .main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--main-color);
+    margin-bottom: 10px;
+}
+
+.dev-info .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dev-info .links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.dev-info .links li {
+    margin: 0 10px;
+    font-size: 16px;
+    color: var(--second-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.dev-info .links li:hover {
+    color: var(--main-color);
+}
+
+.system-info .system-version,
+.system-info .server-ip,
+.system-info .device-ip,
+.system-info .server-status {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.system-info div {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.system-info p {
+    font-weight: bold;
+    color: var(--main-color);
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.server-status .status::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    margin-left: 5px;
+}
+
+.col-md-6 {
+    margin-bottom: -25px !important;
+}
+
+.back-home {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #2c2b2e;
+    color: #2c2b2e;
+    transition: color .3s ease, background-color .3s ease;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #2c2b2e38;
+}
+
+.back-home:hover {
+    color: white;
+    background-color: #009efb;
+    border-color: white;
+}
+
+a {
+    color: var(--second-color);
+    transition: color .4s ease;
+}
+
+a:hover {
+    color: var(--main-color);
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 10px;
+    }
+    .dev-info .links {
+        flex-direction: column;
+    }
+    .dev-info .links li {
+        margin: 5px 0;
+    }
+}
