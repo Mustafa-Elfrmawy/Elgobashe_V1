@@ -28,8 +28,27 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('index', absolute: false));
+        $user_u = \App\Models\User::where('username', $request->username)->first();
+
+        $department = \App\Models\Department::where('id', $user_u->manager_id)->first();
+
+        $data = [ "name" =>$user_u->username , "department" => $department->name , "id" => $user_u->id , "manager_id" => $user_u->manager_id]; 
+
+        if ($user_u) {
+            $user_u->last_login = now();
+            $user_u->save();
+
+            session()->put('user', $data);
+            return redirect()->intended(route('index', absolute: false));
+        } else {
+            return redirect()->back()->withErrors(['username' => 'The provided username does not exist.']);
+        }
     }
+
+
+
+
+
 
     /**
      * Destroy an authenticated session.

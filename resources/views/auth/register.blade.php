@@ -11,6 +11,10 @@
 </head>
 <body class="bg-light">
   <div class="container">
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+      {{ session('success') }}
+      @endif
     <div class="row justify-content-center align-items-center" style="min-height:100vh;">
       <div class="col-md-6">
         <div class="card shadow">
@@ -20,7 +24,7 @@
               <h3>GHO - Users</h3>
             </div>
             <!-- نموذج إضافة مستخدم -->
-            <form id="userForm" method="POST" action="{{ route('register') }}">
+            <form id="userForm" method="POST" action="{{ route('register_C') }}">
               @csrf
               <div class="mb-3">
                 <label for="userName" class="form-label">اسم المستخدم</label>
@@ -29,6 +33,7 @@
                     <div class="text-danger small mt-1">{{ $message }}</div>
                 @enderror
               </div>
+
               <div class="mb-3">
                 <label for="employee" class="form-label">الموظف</label>
                 <select id="employee" name="manager_id" class="form-control" required>
@@ -43,6 +48,25 @@
                     <div class="text-danger small mt-1">{{ $message }}</div>
                 @enderror
               </div>
+
+              <div class="mb-3">
+                <span>يرجي سرعه التعديل علي الصلاحيه اذا تم الاختيار خطأ</span> 
+                <label for="employee" class="form-label">    صلاحيات الموظف</label>
+                <select id="employee" name="pr_id" class="form-control" required>
+                  <option value="">اختر الصلاحيه المناسبه</option>
+                  @foreach ($permations as $permation)
+                  @if($permation->id != 1 && $permation->permation_name != 'owner' ) 
+                  <option value="{{ $permation->id }}" {{ old('permation') == $permation->id ? 'selected' : '' }}>
+                    {{ $permation->permation_name }}
+                  </option>
+                  @endif 
+                  @endforeach
+                </select>
+                @error('pr_id')
+                    <div class="text-danger small mt-1">{{ $message }}</div>
+                @enderror
+              </div>
+
               <div class="mb-3">
                 <label for="userPassword" class="form-label">كلمة السر</label>
                 <input type="password" id="userPassword" name="password" class="form-control" required>

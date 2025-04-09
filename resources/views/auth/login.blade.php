@@ -14,6 +14,7 @@
 </head>
 <body class="bg-light">
   <div class="container">
+      </div>
     <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="col-md-4">
         <div class="card shadow">
@@ -22,7 +23,8 @@
               <img src="{{ asset('assets/images/logo-icon.png') }}" alt="Logo" class="dark-logo" style="width: 50px;">
               <h3>GHO - Login</h3>
             </div>
-            <form /*id="loginForm"*/ method="POST" action="{{ route('login') }}">
+
+            <form  method="POST" action="{{ route('login') }}">
               @csrf
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -34,6 +36,7 @@
               </div>
               <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
+
             {{-- <div id="loginError" class="alert alert-danger mt-3 d-none" role="alert">
               Invalid Username or Password..!
             </div> --}}

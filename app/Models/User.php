@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = ['username', 'password', 'manager_id'];
+    protected $fillable = ['username', 'password', 'manager_id' , 'pr_id'];
 
     /**
      * العلاقة مع قسم (Department) المستخدم.
@@ -27,6 +27,13 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employee::class, 'manager_id');
     }
+
+    public function permation()
+    {
+        return $this->belongsTo(Permation::class, 'pr_id');
+    }
+    
+    
     /**
      * The attributes that should be hidden for serialization.
      *

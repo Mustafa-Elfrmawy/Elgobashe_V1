@@ -40,7 +40,10 @@
                                     
                                     <option value="">اختر القسم</option>
                                     @foreach ($department as $department)
-                                    <option value="{{$department->id}}"> {{$department->name}}</option>
+                                    @if($department->name  !== "صاحب المنشأه") {
+                                        <option value="{{$department->id}}">{{$department->name}}</option>
+                                    }
+                                    @endif
                                     @endforeach
                                     {{-- <option value="sales">المبيعات</option>
                                     <option value="accounting">المحاسبة</option>

@@ -50,7 +50,7 @@ class Action extends Controller
         // Validate the request data
 
         $validatedData = $request->validate([
-            'employeeName' => 'required|string|max:255',
+            'employeeName' => 'required|string|max:255|unique:employees,full_name',
             'department' => 'required|integer|exists:departments,id',
             'phoneNumber' => 'required|numeric|digits:11',
             'address' => 'required|string|max:500',
@@ -72,7 +72,10 @@ class Action extends Controller
         $employee->phone_number = $validatedData['phoneNumber'];
         $employee->address = $validatedData['address'];
         $employee->image = $imagePath ?? null;
-        $employee->save();
-        return redirect()->route('employee')->with('success', 'Employee added successfully.');
+        return $employee->save()
+            ? redirect()->route('employee')->with('success', 'Employee added successfully.')
+            :
+            redirect()->back()->withErrors(['error' => 'Failed to create employee.']);
+
     }
 }

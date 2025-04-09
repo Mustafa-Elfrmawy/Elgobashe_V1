@@ -1,4 +1,4 @@
-@extends('layout/layout_action')
+{{-- @extends('layout/layout_action')
 
 @section('content_2')
 @section('title')
@@ -47,4 +47,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

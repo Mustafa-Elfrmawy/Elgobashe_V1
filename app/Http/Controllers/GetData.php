@@ -52,4 +52,28 @@ class GetData extends Controller
             'department' => $department
         ]);
     }
+
+    public function getInformation($id)
+    {
+        $user = \App\Models\User::find($id);
+        $department = \App\Models\Department::where('id', $user->manager_id)->first();
+        $permation = \App\Models\Permation::where('id', $user->pr_id)->first();
+        $employee = \App\Models\Employee::where('id', $user->manager_id)->first();
+        if ($employee) {
+            $employee->formatted_date = Carbon::parse($employee->created_at)
+                ->locale('ar')
+                ->isoFormat('dddd، YYYY-MM-DD');
+        }
+        // $employee->transform(function ($employee) {
+        //     $employee->formatted_date = Carbon::parse($employee->created_at)->locale('ar')->isoFormat('dddd، YYYY-MM-DD');
+        //     return $employee;
+        // });
+
+        return view('pages-profile', [
+            'user' => $user,
+            'department' => $department,
+            'permation' => $permation,
+            'employee' => $employee,
+        ]);
+    }
 }
